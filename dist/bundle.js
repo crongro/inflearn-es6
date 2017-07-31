@@ -65,9 +65,17 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-console.log("start project by webpack");
+"use strict";
+
+
+var myfun = function myfun() {
+	var name = "crong";
+	console.log("my name is " + name);
+};
+
+myfun();
 
 /***/ })
 /******/ ]);

@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "webpack"
+    "start": "webpack"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-preset-env": "^1.6.0",
     "webpack": "^3.0.0"
   }
 }
