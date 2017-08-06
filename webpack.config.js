@@ -4,7 +4,8 @@ module.exports = {
 	entry: './src/index.js',
 	output : {
 		filename:'bundle.js',
-		path:path.resolve(__dirname, 'dist')
+		path:path.resolve(__dirname, 'dist'),
+		publicPath: '/dist'
 	},
 	module: {
 		rules : [{
@@ -18,7 +19,7 @@ module.exports = {
 							'targets' : {
 								'browsers': ["last 2 versions","ie 9"]
 							},
-							 "debug": true
+							 "debug": false
 						}]
 					]
 				}
