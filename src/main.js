@@ -5,26 +5,24 @@ class Blog {
 	}
 
 	setInitData(dataURL) {
-		this.getData(dataURL);
-		//do something..
+		this.getData(dataURL, this.insertPosts);
 	}
 
-	getData(dataURL) {
+	getData(dataURL, fn) {
 		const oReq = new XMLHttpRequest();
-
 		oReq.addEventListener("load", () => {
 			const list = JSON.parse(JSON.parse(oReq.responseText).body);
-
-			list.forEach((v) => {
-				console.log(v.title);
-			}
-			)
-
+			fn(list);
 		});
-
-
 		oReq.open('GET', dataURL);
 		oReq.send();
+	}
+
+	insertPosts(list) {
+		const ul = document.querySelector(".blogList > ul");
+		list.forEach((v) => {
+			ul.innerHTML += `<li> <a href=${v.link}> ${v.title} </a></li>`;
+		})
 	}
 }
 
