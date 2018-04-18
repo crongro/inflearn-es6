@@ -11,7 +11,8 @@ class Blog {
 
 	registerEvents() {
 		const startBtn = document.querySelector(".start");
-		const dataURL = "https://tlhm20eugk.execute-api.ap-northeast-2.amazonaws.com/prod/lambda_get_blog_info";
+		//const dataURL = "https://tlhm20eugk.execute-api.ap-northeast-2.amazonaws.com/prod/lambda_get_blog_info";
+		const dataURL = "/data/data.json";
 
 		startBtn.addEventListener("click", () => {
 			this.setInitData(dataURL);
@@ -33,7 +34,8 @@ class Blog {
 	getData(dataURL, fn) {
 		const oReq = new XMLHttpRequest();
 		oReq.addEventListener("load", () => {
-			const list = JSON.parse(JSON.parse(oReq.responseText).body);
+			//const list = JSON.parse(JSON.parse(oReq.responseText).body);
+			const list = JSON.parse(oReq.responseText).body;
 			fn(list);
 		});
 		oReq.open('GET', dataURL);
